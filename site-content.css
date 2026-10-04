@@ -49,3 +49,5 @@
 @media(max-width:700px){.pb-updates-grid,.pb-situation-grid{grid-template-columns:1fr}.pb-answer,.pb-topic-note{padding:20px}.pb-editorial .pb-section h2{font-size:32px}}
 
 .pb-editorial a:visited{color:#806127}
+
+.pb-client-benefit{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:38px;align-items:center;padding:38px;border:1px solid #bb9658;border-radius:24px;background:linear-gradient(130deg,#faf6e9,#eee4cf);margin:38px 0}.pb-client-benefit h2{font-size:clamp(30px,4vw,48px)}.pb-member-card{padding:30px;border:1px solid #c5a25f;border-radius:22px;background:radial-gradient(ellipse at top right,#3e6352,transparent 65%),#143b30;color:#f7e4b9;box-shadow:0 16px 35px #193b3022}.pb-member-card>span{font-size:12px;letter-spacing:.1em;text-transform:uppercase}.pb-member-card strong{display:block;font:600 72px/1.2 var(--pb-display);color:#f1d398;margin:18px 0}.pb-member-card h3{color:#fff6dc}.pb-member-card p{color:#f1e7ce}.pb-member-card small{display:block;line-height:1.6;color:#ddcfad}@media(max-width:760px){.pb-client-benefit{grid-template-columns:1fr;padding:22px;gap:24px}.pb-member-card{padding:24px}}
