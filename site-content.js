@@ -26,6 +26,19 @@
     window.ym(113279154, 'init', {webvisor:false,clickmap:false,trackLinks:false,accurateTrackBounce:true,url:cleanUrl(location.href),referrer:cleanUrl(document.referrer)});
     load('https://mc.yandex.ru/metrika/tag.js?id=113279154');
   }
+  // Count contact intent only; never send the Telegram draft or URL parameters.
+  document.addEventListener('click', function (event) {
+    if (!active || choice !== 'granted') return;
+    var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+    if (!link) return;
+    var target;
+    try { target = new URL(link.href); } catch (e) { return; }
+    if (target.protocol !== 'https:' || target.hostname !== 't.me' || target.pathname.replace(/\/$/, '').toLowerCase() !== '/pobalkanimnow') return;
+    var placement = link.closest('#pb-renewal-result') ? 'renewal_form' : link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : 'content';
+    var params = {page_path:location.pathname, contact_channel:'telegram', placement:placement};
+    try { window.gtag('event', 'contact_telegram', Object.assign({send_to:'G-5QLBM8K6SM',transport_type:'beacon'}, params)); } catch (e) {}
+    try { window.ym(113279154, 'reachGoal', 'contact_telegram', params); } catch (e) {}
+  });
   function choose(value) {
     choice = value;
     try { localStorage.setItem(key, JSON.stringify({value:value,time:Date.now()})); } catch (e) {}
@@ -47,7 +60,7 @@
   document.head.appendChild(style);
   panel = document.createElement('section');
   panel.className = 'pb-analytics-panel'; panel.setAttribute('aria-label', 'Настройки аналитики');
-  panel.innerHTML = '<h2>Поможете улучшить сайт?</h2><p>С вашего разрешения Яндекс Метрика и Google Analytics посчитают посещения и покажут, какие страницы читают чаще. Для этого используются cookies. Отказ не влияет на работу сайта.</p><details><summary>Какие данные собираются</summary><p>Адрес страницы без параметров, источник перехода и сведения о браузере и устройстве передаются Яндексу и Google. Запись действий и содержимого форм отключена. Выбор можно изменить внизу страницы.</p><a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener noreferrer">Политика Яндекса</a> · <a href="https://policies.google.com/privacy?hl=ru" target="_blank" rel="noopener noreferrer">Политика Google</a></details><div class="pb-analytics-actions"><button type="button" data-choice="granted">Разрешить</button><button type="button" data-choice="denied">Не разрешать</button></div>';
+  panel.innerHTML = '<h2>Поможете улучшить сайт?</h2><p>С вашего разрешения Яндекс Метрика и Google Analytics посчитают посещения и покажут, какие страницы читают чаще и где нажимают на связь в Telegram. Для этого используются cookies. Отказ не влияет на работу сайта.</p><details><summary>Какие данные собираются</summary><p>Адрес страницы без параметров, источник перехода и сведения о браузере и устройстве передаются Яндексу и Google. Учитываются нажатия на связь с Алексеем в Telegram. Текст сообщения и содержимое форм не передаются; запись сеансов отключена. Выбор можно изменить внизу страницы.</p><a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener noreferrer">Политика Яндекса</a> · <a href="https://policies.google.com/privacy?hl=ru" target="_blank" rel="noopener noreferrer">Политика Google</a></details><div class="pb-analytics-actions"><button type="button" data-choice="granted">Разрешить</button><button type="button" data-choice="denied">Не разрешать</button></div>';
   panel.querySelectorAll('[data-choice]').forEach(function (button) { button.addEventListener('click', function () { choose(button.dataset.choice); }); });
   document.body.appendChild(panel);
   var settings = document.createElement('button'); settings.type = 'button'; settings.className = 'pb-analytics-settings'; settings.textContent = 'Настройки аналитики';
