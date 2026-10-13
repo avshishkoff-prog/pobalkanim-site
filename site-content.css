@@ -60,3 +60,12 @@
 
 /* Direct contact: clear next step without a client portal. */
 .pb-sales-contact{margin:48px 0;padding:clamp(26px,5vw,60px);border:1px solid #ba995d;border-radius:24px;background:radial-gradient(ellipse at top right,#3e6352,transparent 65%),#143b30;color:#fff8e9}.pb-sales-contact .pb-kicker{color:#ecd29d}.pb-sales-contact h2{font:500 clamp(34px,4vw,54px)/1.1 var(--pb-display);color:#fff8e9;max-width:850px}.pb-sales-contact p{max-width:760px;line-height:1.75;color:#e9edde}.pb-sales-contact .pb-button{background:#ecd29d;color:#183d33;border-color:#ecd29d}.pb-sales-contact .pb-links>a:not(.pb-button){color:#fff3d4}.pb-sales-contact small{display:block;margin-top:22px;color:#e5d7b8}.service-card{transition:transform .18s ease,box-shadow .18s ease}.service-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #183d3312}.pb-header-actions .pb-direct-contact{font-weight:650;color:#806127}@media(prefers-reduced-motion:reduce){.service-card{transition:none}.service-card:hover{transform:none}}@media(max-width:700px){.pb-header-actions .pb-direct-contact{font-size:13px}.pb-sales-contact .pb-links{align-items:flex-start}.pb-sales-contact .pb-button{width:100%;text-align:center}}
+
+/* Always-visible navigation, including partner links on small screens. */
+.site-nav:has(.pb-header-links),.pb-nav:has(.pb-header-links){flex-wrap:wrap;gap:16px}
+.pb-header-actions:has(.pb-header-links){display:flex;flex-wrap:wrap;justify-content:flex-end;gap:14px 22px;flex:1 1 680px;min-width:0}
+.pb-header-links{display:flex!important;position:static!important;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:12px 20px!important;min-width:0}
+.pb-header-links a{display:inline-flex!important;align-items:center;gap:7px;white-space:nowrap;text-decoration:none;font-size:14px;color:var(--pb-green,#183d33);padding:5px 0}
+.pb-header-links a:hover{text-decoration:underline;text-underline-offset:5px}
+.pb-header-links a:focus-visible{outline:2px solid #b89960;outline-offset:4px}
+@media(max-width:700px){.pb-header-actions:has(.pb-header-links){flex-basis:100%;margin-left:0;justify-content:flex-start;gap:12px}.pb-header-links{justify-content:flex-start;gap:8px 18px!important;width:100%}.pb-header-links a{font-size:13px;min-height:30px}}
