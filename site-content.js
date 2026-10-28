@@ -3,7 +3,7 @@
   'use strict';
   if (window.pbAnalyticsReady) return;
   window.pbAnalyticsReady = true;
-  var allowed = ['/', '/index.html', '/about.html', '/business.html', '/company.html', '/documents.html', '/mup-budva.html', '/renewal.html', '/reviews.html', '/schools.html', '/vnzh.html', '/rent-in-montenegro.html', '/why-we-moved.html', '/moving-to-montenegro.html', '/montenegro-visa-2026.html', '/montenegro-for-russians.html'];
+  var allowed = ['/', '/index.html', '/about.html', '/business.html', '/company.html', '/digital-nomad.html', '/documents.html', '/mup-budva.html', '/renewal.html', '/reviews.html', '/schools.html', '/vnzh.html', '/rent-in-montenegro.html', '/why-we-moved.html', '/moving-to-montenegro.html', '/montenegro-visa-2026.html', '/montenegro-for-russians.html'];
   if (location.hostname !== 'pobalkanim.com' || allowed.indexOf(location.pathname) < 0) return;
   var key = 'pb-analytics-consent-v1', active = false, panel, choice = null;
   try { var saved = JSON.parse(localStorage.getItem(key)); if (saved && Date.now() - saved.time < 15552000000) choice = saved.value; } catch (e) {}
