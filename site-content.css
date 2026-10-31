@@ -21,7 +21,7 @@
 :root{--pb-bronze:#806127;--pb-metal:#b89960;--pb-metal-light:#ead5a6}
 .site-nav,.pb-nav,.header{border-bottom-color:#c8b58c}
 .site-nav .brand,.pb-brand,.header .brand{color:var(--pb-green)}
-.pb-brand-since,.header .brand small{color:#806127}
+.pb-brand .pb-brand-since,.pb-brand-since,.header .brand small{color:#806127}
 .site-hero h1::after,.pb-hero h1::after,.hero h1::after{content:"";display:block;width:72px;height:3px;margin-top:25px;background:linear-gradient(90deg,#997331,#d7ba7d);border-radius:3px}
 .pb-kicker,.pb-benefits span,.eyebrow{color:var(--pb-bronze)}
 .pb-benefits>div{border-left:2px solid #c4a569;padding-left:20px}
